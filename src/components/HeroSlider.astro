@@ -1,0 +1,54 @@
+---
+const slides = [
+  { src: "/images/ates1.jpg", title: "Klima Çözümleri", desc: "Ev ve iş yerleri için profesyonel klima sistemleri.", color: "red" },
+  { src: "/images/ates2.jpg", title: "Havalandırma Sistemleri", desc: "Temiz hava, sağlıklı yaşam.", color: "blue" },
+  { src: "/images/ates3.jpg", title: "Yangın Tesisatı", desc: "Güvenliğiniz için eksiksiz yangın çözümleri.", color: "green" }
+];
+---
+
+<section class="relative pt-16">
+  <div id="default-carousel" class="relative w-full" data-carousel="slide">
+    
+    <!-- Slides -->
+    <div class="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px] overflow-hidden">
+      {slides.map((slide, index) => (
+        <div class={`hidden duration-700 ease-in-out ${index === 0 ? 'block' : ''}`} data-carousel-item>
+          <!-- Resim -->
+          <img src={slide.src} alt={slide.title} class="absolute w-full h-full object-cover" />
+
+          <!-- Koyu Karartma -->
+          <div class="absolute inset-0 bg-black/50"></div>
+
+          <!-- Gradient + Yazı -->
+          <div class={`absolute inset-0 bg-gradient-to-r from-${slide.color}-600/30 to-${slide.color}-800/30`}>
+            <div class="flex items-center justify-center h-full">
+              <div class="text-center text-white px-4">
+                <h1 class="mb-4 text-4xl font-extrabold md:text-5xl lg:text-6xl">{slide.title}</h1>
+                <p class="mb-6 text-lg font-normal lg:text-xl">{slide.desc}</p>
+                <button class={`text-${slide.color}-600 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-${slide.color}-300 font-medium rounded-lg text-sm px-5 py-2.5`}>
+                  İletişime Geç
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Ok Butonları -->
+    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/40 hover:bg-black/60">
+        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+        </svg>
+      </span>
+    </button>
+    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/40 hover:bg-black/60">
+        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+        </svg>
+      </span>
+    </button>
+  </div>
+</section>

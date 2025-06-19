@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro"
+import AboutSection from "../components/AboutSection.astro"
+import FaqSection from "../components/FaqSection.astro"
+import Banner from "../components/Banner.astro"
+
+const breadcrumbs = [
+  { label: 'Anasayfa', href: '/' },
+  { label: 'Hakkımızda', href: '/hakkimizda' }
+];
+---
+<Layout>
+    <div class="mt-20">
+        <Banner
+            title="Hakkımızda"
+            description="Kuruluşumuzdan bu yana kaliteli hizmet veriyoruz."
+            image="/images/page-banner.jpg"
+            breadcrumbs={breadcrumbs}
+            />
+        <AboutSection />
+        <FaqSection />
+    </div>
+</Layout>

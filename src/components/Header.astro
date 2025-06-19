@@ -1,0 +1,60 @@
+---
+
+---
+<header class="fixed top-0 left-0 w-full z-50 bg-white md:bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="text-xl font-bold text-red-600">
+          <img src="/images/ateslogo.png" alt="logo" class="w-40 h-15">
+        </a>
+      </div>
+
+      <!-- Menü -->
+      <nav class="hidden md:flex space-x-8 font-medium text-gray-700">
+        <a href="/" class="hover:text-red-600 transition">Ana Sayfa</a>
+        <a href="/hakkimizda" class="hover:text-red-600 transition">Hakkımızda</a>
+        <a href="/hizmetler" class="hover:text-red-600 transition">Hizmetler</a>
+        <a href="/iletisim" class="hover:text-red-600 transition">İletişim</a>
+      </nav>
+
+      <!-- "Hemen Ara" Butonu - sadece büyük ekran -->
+      <div class="hidden lg:block">
+        <a href="tel:05551234567" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
+          Hemen Ara
+        </a>
+      </div>
+
+      <!-- Hamburger Menü (Mobil) -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobil Menü -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white shadow">
+    <a href="/" class="block py-2 text-gray-700 hover:text-red-600">Ana Sayfa</a>
+    <a href="#hakkimizda" class="block py-2 text-gray-700 hover:text-red-600">Hakkımızda</a>
+    <a href="#hizmetler" class="block py-2 text-gray-700 hover:text-red-600">Hizmetler</a>
+    <a href="#iletisim" class="block py-2 text-gray-700 hover:text-red-600">İletişim</a>
+  </div>
+
+    <script>
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+
+    if(button && menu) {
+        button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        });
+    }
+    </script>
+
+</header>
