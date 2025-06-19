@@ -1,5 +1,5 @@
 ---
-
+import { info } from "../../data/info"
 ---
 <header class="fixed top-0 left-0 w-full z-50 bg-white md:bg-white shadow-md">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,12 +17,13 @@
         <a href="/" class="hover:text-red-600 transition">Ana Sayfa</a>
         <a href="/hakkimizda" class="hover:text-red-600 transition">Hakkımızda</a>
         <a href="/hizmetler" class="hover:text-red-600 transition">Hizmetler</a>
+        <a href="/blog" class="hover:text-red-600 transition">Blog</a>
         <a href="/iletisim" class="hover:text-red-600 transition">İletişim</a>
       </nav>
 
       <!-- "Hemen Ara" Butonu - sadece büyük ekran -->
       <div class="hidden lg:block">
-        <a href="tel:05551234567" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
+        <a href={`tel:${info.tel}`}  class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
           Hemen Ara
         </a>
       </div>
@@ -41,9 +42,10 @@
   <!-- Mobil Menü -->
   <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white shadow">
     <a href="/" class="block py-2 text-gray-700 hover:text-red-600">Ana Sayfa</a>
-    <a href="#hakkimizda" class="block py-2 text-gray-700 hover:text-red-600">Hakkımızda</a>
-    <a href="#hizmetler" class="block py-2 text-gray-700 hover:text-red-600">Hizmetler</a>
-    <a href="#iletisim" class="block py-2 text-gray-700 hover:text-red-600">İletişim</a>
+    <a href="/hakkimizda" class="block py-2 text-gray-700 hover:text-red-600">Hakkımızda</a>
+    <a href="/hizmetler" class="block py-2 text-gray-700 hover:text-red-600">Hizmetler</a>
+    <a href="/blog" class="block py-2 text-gray-700 hover:text-red-600">Blog</a>
+    <a href="/iletisim" class="block py-2 text-gray-700 hover:text-red-600">İletişim</a>
   </div>
 
     <script>

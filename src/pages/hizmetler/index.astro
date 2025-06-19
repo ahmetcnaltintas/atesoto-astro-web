@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Banner from "../../components/Banner.astro";
+import Services from "../../components/Services.astro";
+import CallAction from "../../components/CallAction.astro";
+
+const breadcrumbs = [
+    { label: "Anasayfa", href: "/"},
+    { label: "Hizmetler", href: "/hizmetler"},
+]
+---
+<Layout>
+    <div class="mt-20">
+        <Banner
+        title="Hizmetler"
+        description="Hizmetler Açıklama"
+        image="/images/page-banner.jpg"
+        breadcrumbs={breadcrumbs} />
+
+        <Services />
+        <CallAction />
+    </div>
+</Layout>

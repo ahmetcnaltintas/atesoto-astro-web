@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Banner from "../../components/Banner.astro"
+
+const breadcrumbs = [
+    { label: "Anasayfa", href: "/"},
+    { label: "Blog", href: "/blog"},
+]
+---
+<Layout>
+    <div class="mt-20">
+        <Banner 
+        title="Tüm Bloglar"
+        description="Tüm Bloglar Açıklama"
+        image="/images/page-banner.jpg"
+        breadcrumbs={breadcrumbs}/>
+    </div>
+</Layout>
