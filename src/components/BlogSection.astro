@@ -3,62 +3,17 @@
 export interface Props {
   title?: string;
   subtitle?: string;
+  showAllButton?: boolean; // Bu prop ekleniyor
+  limit?: number;          // Gösterilecek maksimum blog sayısı
 }
 
-const { title = "Son Blog Yazıları", subtitle = "En güncel içeriklerimizi keşfedin" } = Astro.props;
+const { title = "Son Blog Yazıları", subtitle = "En güncel içeriklerimizi keşfedin", showAllButton = true, limit } = Astro.props;
 import { blogs } from '../../data/blog';
+
+const displayedBlogs = typeof limit === 'number' ? blogs.slice(0, limit) : blogs;
 ---
 
-
-<style>
-
-  .show-more-btn {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-  }
-
-  .show-more-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: white;
-    color: #667eea;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    color: #5a67d8;
-  }
-
-  @media (max-width: 480px) {
-    .cta-button {
-      padding: 0.875rem 1.5rem;
-      font-size: 0.9rem;
-    }
-  }
-</style>
-
+<!-- Aşağıdaki kodda blogs yerine displayedBlogs kullanıyoruz -->
 <section class="blog-section py-20 bg-gradient-to-br from-slate-50 to-gray-100">
   <div class="container mx-auto px-6 max-w-7xl">
     <!-- Başlık Bölümü -->
@@ -73,7 +28,7 @@ import { blogs } from '../../data/blog';
 
     <!-- Blog Kartları -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-      {blogs.map((post) => (
+      {displayedBlogs.map((post) => (
         <article class="blog-card group">
           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
             <!-- Görsel -->
@@ -119,18 +74,19 @@ import { blogs } from '../../data/blog';
       ))}
     </div>
 
-    <!-- Tümünü Gör Butonu -->
-    <div class="flex items-center justify-center text-center w-full">
-      <a href="/blog" class="flex items-center justify-center w-full sm:w-auto bg-white text-red-600 hover:bg-gray-200 focus:ring-4 focus:ring-red-300 font-bold rounded-lg text-xl px-8 py-4 text-center transition-all duration-300 transform hover:scale-105">
-          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
-          </svg>
-          Tüm Blog Yazılarını Gör
-          <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-          </svg>
-      </a>
-    </div>
+    {showAllButton && (
+      <div class="flex items-center justify-center text-center w-full">
+        <a href="/blog" class="flex items-center justify-center w-full sm:w-auto bg-white text-red-600 hover:bg-gray-200 focus:ring-4 focus:ring-red-300 font-bold rounded-lg text-xl px-8 py-4 text-center transition-all duration-300 transform hover:scale-105">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+            </svg>
+            Tüm Blog Yazılarını Gör
+            <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+        </a>
+      </div>
+    )}
   </div>
 </section>
 

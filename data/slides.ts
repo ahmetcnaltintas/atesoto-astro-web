@@ -1,20 +1,20 @@
 export const slides = [
   {
     src: "/images/ates1.jpg",
-    title: "7/24 Araç Kurtarma",
-    desc: "Yolda mı kaldınız? Hızlı ve güvenilir oto kurtarma hizmeti bir telefon uzağınızda.",
+    title: "7/24 Güvenilir Oto Kurtarma",
+    desc: "Her zaman yanınızda, hızlı ve güvenli yol yardım hizmeti sunuyoruz.",
     color: "red"
   },
   {
     src: "/images/ates2.jpg",
-    title: "Profesyonel Oto Çekici",
-    desc: "Bursa ve çevresinde güvenli oto çekici hizmeti. Aracınızı emin ellere teslim edin.",
+    title: "Profesyonel Araç Taşıma ve Yardım",
+    desc: "Her tür aracı dikkatle taşıyarak güvenli hizmet sağlıyoruz.",
     color: "blue"
   },
   {
     src: "/images/ates3.jpg",
-    title: "Yol Yardım Hizmeti",
-    desc: "Lastik patlaması, akü sorunu veya arıza anında yanınızdayız. 7/24 destek.",
+    title: "Anında ve Uzman Kurtarma Çözümleri",
+    desc: "Bursa’nın her noktasına hızlı ve profesyonel müdahale sağlıyoruz.",
     color: "green"
   }
 ];

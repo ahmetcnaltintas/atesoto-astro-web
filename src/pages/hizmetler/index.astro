@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Banner from "../../components/Banner.astro";
 import Services from "../../components/Services.astro";
-import CallAction from "../../components/CallAction.astro";
+import ServiceAreas from "../../components/ServiceAreas.astro";
 
 const breadcrumbs = [
     { label: "Anasayfa", href: "/"},
@@ -13,11 +13,11 @@ const breadcrumbs = [
     <div class="mt-20">
         <Banner
         title="Hizmetler"
-        description="Hizmetler Açıklama"
+        description="Size özel profesyonel oto kurtarma çözümleri"
         image="/images/page-banner.jpg"
         breadcrumbs={breadcrumbs} />
 
         <Services />
-        <CallAction />
+        <ServiceAreas />
     </div>
 </Layout>

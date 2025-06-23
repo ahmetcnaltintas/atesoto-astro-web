@@ -4,5 +4,5 @@ export const info = {
   whatsapp: "905308548816",
   email: "atesotokurtarma16@gmail.com",
   address: "Bursa, Türkiye",
-  footerContent: "Ateş Oto Kurtarma Footer İçerik Yazısı",
+  footerContent: "Yolda kaldığınızda hızlı, güvenli ve profesyonel destekle yanınızdayız. Bursa'nın her noktasına anında müdahale ile Ateş Oto Kurtarma hizmetinizde.",
 };

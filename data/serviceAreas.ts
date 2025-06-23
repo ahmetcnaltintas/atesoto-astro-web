@@ -1,6 +1,7 @@
 export const serviceAreas = [
   // Ana merkez
   { name: "Bursa Merkez", priority: "high" },
+  { name: "Bursa Çevresi", priority: "high" },
   
   // Ana ilçeler
   { name: "Osmangazi", priority: "high" },

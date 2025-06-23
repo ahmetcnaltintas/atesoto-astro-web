@@ -1,7 +1,7 @@
 export const galleryImages = [
   {
     id: 1,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates5.jpg",
     alt: "7/24 Acil Yol Yardım Hizmeti",
     title: "7/24 Acil Yol Yardım Hizmeti",
     category: "Yol Yardım",
@@ -9,7 +9,7 @@ export const galleryImages = [
   },
   {
     id: 2,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates6.jpg",
     alt: "Araç Çekme ve Taşıma Hizmeti",
     title: "Araç Çekme ve Taşıma Hizmeti",
     category: "Araç Taşıma",
@@ -17,7 +17,7 @@ export const galleryImages = [
   },
   {
     id: 3,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates7.jpg",
     alt: "Lastik Değişimi ve Tamiri",
     title: "Lastik Değişimi ve Tamiri",
     category: "Yol Yardım",
@@ -25,7 +25,7 @@ export const galleryImages = [
   },
   {
     id: 4,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates8.jpg",
     alt: "Akü Takviyesi ve Değişimi",
     title: "Akü Takviyesi ve Değişimi",
     category: "Yol Yardım",
@@ -33,7 +33,7 @@ export const galleryImages = [
   },
   {
     id: 5,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates9.jpg",
     alt: "Motorsiklet ve Scooter Taşıma",
     title: "Motorsiklet ve Scooter Taşıma",
     category: "Motosiklet Taşıma",
@@ -41,7 +41,7 @@ export const galleryImages = [
   },
   {
     id: 6,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates10.jpg",
     alt: "Büyük Araç Kurtarma ve Taşıma",
     title: "Büyük Araç Kurtarma ve Taşıma",
     category: "Büyük Araç Taşıma",
@@ -49,7 +49,7 @@ export const galleryImages = [
   },
   {
     id: 7,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates11.jpg",
     alt: "Forklift Taşıma Hizmeti",
     title: "Forklift Taşıma Hizmeti",
     category: "Forklift Taşıma",
@@ -57,7 +57,7 @@ export const galleryImages = [
   },
   {
     id: 8,
-    src: "/images/ates1.jpg",
+    src: "/images/galeri/ates12.jpg",
     alt: "Tekne Taşıma ve Kurtarma",
     title: "Tekne Taşıma ve Kurtarma",
     category: "Tekne Taşıma",
