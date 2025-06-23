@@ -27,17 +27,10 @@ const breadcrumbs = [
   <div class="mt-20">
     <Banner
       title={blog.title}
-      description={blog.desc}
       image="/images/page-banner.jpg"
       breadcrumbs={breadcrumbs}
     />
   </div>
 
-  <div class="max-w-3xl mx-auto px-4 py-10">
-    <article class="prose prose-lg prose-img:rounded-lg prose-a:text-red-600">
-      <h1>{blog.title}</h1>
-      <img src={blog.image} alt={blog.title} />
-      <div set:html={blog.content} />
-    </article>
-  </div>
+
 </Layout>
