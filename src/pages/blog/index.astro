@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import Banner from "../../components/Banner.astro"
+import CallAction from "../../components/CallAction.astro"
 
 const breadcrumbs = [
     { label: "Anasayfa", href: "/"},
@@ -14,5 +15,7 @@ const breadcrumbs = [
         description="Tüm Bloglar Açıklama"
         image="/images/page-banner.jpg"
         breadcrumbs={breadcrumbs}/>
+
+        <CallAction />
     </div>
 </Layout>

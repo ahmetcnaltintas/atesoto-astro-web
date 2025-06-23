@@ -1,0 +1,401 @@
+---
+import { serviceAreas } from '../../data/serviceAreas'
+import { info } from '../../data/info'
+---
+
+<style>
+  .service-areas-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #ff4e50 0%, #b31217 50%, #6e0a0a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-areas-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  }
+
+  .service-areas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .area-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+    min-height: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .area-badge:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .area-badge.priority-high {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .area-badge.priority-medium {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .area-badge.priority-low {
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+  }
+
+  .show-more-container {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .show-more-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .show-more-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-text {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: #667eea;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    color: #5a67d8;
+  }
+
+  .phone-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Hidden areas for mobile */
+  .hidden-areas {
+    display: none;
+  }
+
+  .hidden-areas.show {
+    display: contents;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .service-areas-section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .areas-grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .area-badge {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+      min-height: 2.2rem;
+    }
+
+    .area-badge.priority-low {
+      font-size: 0.75rem;
+    }
+
+    .cta-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-areas-container {
+      padding: 0 0.75rem;
+    }
+
+    .areas-grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.4rem;
+    }
+
+    .area-badge {
+      padding: 0.5rem 0.6rem;
+      font-size: 0.75rem;
+      min-height: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* SEO-friendly structured data styling */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<section class="service-areas-section" id="hizmet-bolgelerimiz">
+  <div class="service-areas-container">
+    <div class="section-header">
+      <h2 class="section-title">Hizmet Bölgelerimiz</h2>
+      <p class="section-subtitle">
+        Bursa ve çevre ilçelerde 7/24 hızlı ve güvenilir oto çekici hizmeti sunuyoruz
+      </p>
+    </div>
+
+    <!-- SEO için structured data -->
+    <div class="sr-only">
+      <p>Bursa oto çekici hizmet alanları: {serviceAreas.map(area => area.name).join(', ')}</p>
+    </div>
+
+    <div class="areas-grid" id="areasGrid">
+      {serviceAreas.slice(0, 12).map((area) => (
+        <div class={`area-badge priority-${area.priority}`}>
+          {area.name}
+        </div>
+      ))}
+      
+      <div class="hidden-areas" id="hiddenAreas">
+        {serviceAreas.slice(12).map((area) => (
+          <div class={`area-badge priority-${area.priority}`}>
+            {area.name}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="show-more-container">
+      <button class="show-more-btn" id="showMoreBtn">
+        Tüm Hizmet Bölgelerini Göster
+      </button>
+    </div>
+
+    <div class="cta-section">
+      <h3 class="cta-title">Acil Yardım mı Gerekiyor?</h3>
+      <p class="cta-text">
+        Bulunduğunuz konumdan en yakın oto çekici aracımızı hemen gönderiyoruz. 
+        24 saat kesintisiz hizmet garantisi ile yanınızdayız.
+      </p>
+      <div class="flex items-center justify-center text-center w-full">
+        <a href=`tel:+${info.whatsapp}` class="flex items-center justify-center w-full sm:w-auto bg-white text-red-600 hover:bg-gray-200 focus:ring-4 focus:ring-red-300 font-bold rounded-lg text-xl px-8 py-4 text-center transition-all duration-300 transform hover:scale-105">
+          <svg class="phone-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          <span class="ps-2"> Hemen Ara: {info.phone}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('showMoreBtn') as HTMLButtonElement;
+    const hiddenAreas = document.getElementById('hiddenAreas') as HTMLElement;
+    
+    if (!showMoreBtn || !hiddenAreas) return;
+    
+    let isExpanded = false;
+    
+    showMoreBtn.addEventListener('click', function() {
+      isExpanded = !isExpanded;
+      
+      if (isExpanded) {
+        hiddenAreas.classList.add('show');
+        showMoreBtn.textContent = 'Daha Az Göster';
+        
+        // Smooth scroll to show new content
+        setTimeout(() => {
+          showMoreBtn.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }, 300);
+      } else {
+        hiddenAreas.classList.remove('show');
+        showMoreBtn.textContent = 'Tüm Hizmet Bölgelerini Göster';
+        
+        // Scroll back to the beginning of the grid
+        const areasGrid = document.getElementById('areasGrid');
+        if (areasGrid) {
+          areasGrid.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }
+    });
+    
+    // Add hover effect for badges
+    const badges = document.querySelectorAll('.area-badge');
+    badges.forEach(badge => {
+        badge.addEventListener('mouseenter', () => {
+            (badge as HTMLElement).style.transform = 'translateY(-2px) scale(1.05)';
+        });
+
+        badge.addEventListener('mouseleave', () => {
+            (badge as HTMLElement).style.transform = 'translateY(0) scale(1)';
+        });
+    });
+  });
+</script>
+
+<!-- JSON-LD Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Bursa Oto Çekici Hizmeti",
+  "description": "Bursa ve çevre ilçelerde 7/24 oto çekici hizmeti",
+  "provider": {
+    "@type": "Organization",
+    "name": "Ateş Oto Çekici"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Bursa",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Türkiye"
+      }
+    }
+  ],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": "+905551234567",
+    "availableLanguage": "Turkish"
+  },
+  "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  }
+}
+</script>
