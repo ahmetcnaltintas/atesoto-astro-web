@@ -1,22 +1,11 @@
-# 1. Build aşaması
-FROM node:20 AS builder
-
+FROM node:lts AS build
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm install
-
 COPY . .
 RUN npm run build
 
-# 2. Sadece statik dosyaları sunan aşama
-# FROM nginx:alpine
-
-# COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Opsiyonel: NGINX config dosyası eklemek isterseniz
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 3000
-
-CMD ["npm", "run", "preview"]
+FROM nginx:alpine AS runtime
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 8080
