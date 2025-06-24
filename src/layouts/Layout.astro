@@ -6,22 +6,26 @@ import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 
 const {
-  title = "Bursa Yakın Çekici | Ateş Oto Kurtarma",
-  description = "Bursa'da 7/24 oto kurtarma ve çekici hizmeti sunan Ateş Oto Kurtarma ile en yakın çekiciye hızlıca ulaşın.",
+  title,
+  description,
   image,
   frontmatter,
   robots,
+  jsonLdType,
+  jsonLdData,
 } = Astro.props;
 
 ---
 
 <html lang="tr">
-  <Head/>
+  <Head {title} {description} {image} {frontmatter} {robots} type={jsonLdType} data={jsonLdData} />
   <body class="bg-white text-gray-900">
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
-  <WhatsAppButton />
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <WhatsAppButton />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   </body>
 </html>

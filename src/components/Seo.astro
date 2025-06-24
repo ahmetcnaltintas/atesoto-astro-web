@@ -9,22 +9,32 @@ const {
   image,
   frontmatter,
   robots,
+  type, 
+  data,
 } = Astro.props;
 
+const siteTitle = title ? `${title} | ${siteData.title}` : siteData.title;
+
 const jsonLD = jsonLDGenerator({
-  type: frontmatter ? "post" : "website",
+  type: frontmatter ? "post" : type,
   post: frontmatter,
   url,
+  data,
 });
 ---
+
+<!-- Primary Meta Tags -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description || siteData.description} />
 
 <!-- SEO -->
 <link rel="canonical" href={url} />
 
 <!-- Open Graph -->
-<meta property="og:site_name" content="Bursa En Yakın Çekici | Bursa Ateş Oto Çekici" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:site_name" content={siteData.title} />
+<meta property="og:title" content={title || siteData.title} />
+<meta property="og:description" content={description || siteData.description} />
 <meta property="og:url" content={url} />
 <meta property="og:image" content={image?.src || siteData.image.src} />
 <meta property="og:image:url" content={image?.src || siteData.image.src} />

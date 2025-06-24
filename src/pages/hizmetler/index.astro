@@ -9,7 +9,12 @@ const breadcrumbs = [
     { label: "Hizmetler", href: "/hizmetler"},
 ]
 ---
-<Layout>
+<Layout
+    title="Hizmetlerimiz"
+    description="Bursa ve çevresinde sunduğumuz profesyonel oto kurtarma, çekici ve yol yardım hizmetlerimizi detaylı olarak inceleyin."
+    jsonLdType="breadcrumb"
+    jsonLdData={{ breadcrumbs: breadcrumbs }}
+>
     <div class="mt-20">
         <Banner
         title="Hizmetler"

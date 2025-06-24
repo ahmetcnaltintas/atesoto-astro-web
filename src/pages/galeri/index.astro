@@ -8,12 +8,17 @@ const breadcrumbs = [
     { label: "Galeri", href: "/galeri"},
 ]
 
-import { galleryImages } from "../../../data/gallery"
+import { galleryImages } from "../../../data/gallery";
 
 const categories = ["Tümü", ...new Set(galleryImages.map(img => img.category))];
 ---
 
-<Layout>
+<Layout
+    title="Galeri"
+    description="Ateş Oto Kurtarma'nın gerçekleştirdiği başarılı oto çekici ve kurtarma operasyonlarından fotoğraflar. Çalışmalarımızı galerimizden inceleyin."
+    jsonLdType="breadcrumb"
+    jsonLdData={{ breadcrumbs: breadcrumbs }}
+>
     <div class="mt-20">
         <Banner
             title="Galeri"

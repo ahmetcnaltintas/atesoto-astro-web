@@ -10,11 +10,16 @@ const breadcrumbs = [
   { label: 'Hakkımızda', href: '/hakkimizda' }
 ];
 ---
-<Layout>
+<Layout
+    title="Hakkımızda"
+    description="Ateş Oto Kurtarma olarak vizyonumuz, misyonumuz ve Bursa'daki oto kurtarma sektöründeki deneyimimiz hakkında daha fazla bilgi edinin."
+    jsonLdType="breadcrumb"
+    jsonLdData={{ breadcrumbs: breadcrumbs }}
+>
     <div class="mt-20">
         <Banner
             title="Hakkımızda"
-            description="Kuruluşumuzdan bu yana kaliteli hizmet veriyoruz."
+            description="Vizyonumuz, misyonumuz ve değerlerimiz"
             image="/images/page-banner.jpg"
             breadcrumbs={breadcrumbs}
             />

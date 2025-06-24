@@ -3,20 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import HeroSlider from "../components/HeroSlider.astro";
 import AboutSection from "../components/AboutSection.astro";
 import Services from "../components/Services.astro";
-import CallAction from "../components/CallAction.astro";
-import FaqSection from "../components/FaqSection.astro";
 import Testimonials from "../components/Testimonials.astro";
 import BlogSection from "../components/BlogSection.astro";
+import CallAction from "../components/CallAction.astro";
+import FaqSection from "../components/FaqSection.astro";
 import ServiceAreas from "../components/ServiceAreas.astro";
 ---
 
-<Layout title="Ana Sayfa" description="Astro ile yapılmış SEO dostu kurumsal web sitesi.">
+<Layout
+  title="Ana Sayfa"
+  description="Bursa'da 7/24 profesyonel oto kurtarma ve yol yardım hizmetleri. En yakın çekici ekibimizle hızlı ve güvenilir çözümler sunuyoruz."
+>
   <HeroSlider />
-  <CallAction />
-  <Services />
   <AboutSection />
+  <Services />
   <Testimonials />
+  <BlogSection />
   <FaqSection />
-  <BlogSection limit={3} showAllButton={true} />
+  <CallAction />
   <ServiceAreas />
 </Layout>
