@@ -1,5 +1,5 @@
 # 1. Build aşaması
-FROM node:18-alpine AS builder
+FROM node:20 AS builder
 
 WORKDIR /app
 
@@ -10,13 +10,13 @@ COPY . .
 RUN npm run build
 
 # 2. Sadece statik dosyaları sunan aşama
-FROM nginx:alpine
+# FROM nginx:alpine
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+# COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Opsiyonel: NGINX config dosyası eklemek isterseniz
 # COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "preview"]
