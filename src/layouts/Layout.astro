@@ -1,19 +1,22 @@
 ---
-const { title = "Bursa Ateş Oto Kurtarma", description = "Kurumsal web siteniz", children } = Astro.props;
+import Head from "./Head.astro";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
+
+const {
+  title = "Bursa Yakın Çekici | Ateş Oto Kurtarma",
+  description = "Bursa'da 7/24 oto kurtarma ve çekici hizmeti sunan Ateş Oto Kurtarma ile en yakın çekiciye hızlıca ulaşın.",
+  image,
+  frontmatter,
+  robots,
+} = Astro.props;
+
 ---
 
 <html lang="tr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  </head>
+  <Head/>
   <body class="bg-white text-gray-900">
     <Header />
     <slot />
