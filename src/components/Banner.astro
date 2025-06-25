@@ -14,14 +14,14 @@ const defaultBg = "bg-gray-900";
 
 <!-- Banner Section -->
 <section 
-  class={`relative bg-cover bg-center h-[20vh] sm:h-[30vh] flex items-center justify-center text-white ${image ? '' : defaultBg}`}
+  class={`relative bg-cover bg-center h-[30vh] sm:h-[30vh] flex items-center justify-center text-white ${image ? '' : defaultBg}`}
   style={image ? `background-image: url('${image}');` : ''}
 >
   <!-- Overlay / Karartma -->
   <div class="absolute inset-0 bg-black opacity-70"></div>
 
   <!-- İçerik -->
-  <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+  <div class="relative z-10 max-w-4xl mx-auto px-4 py-6 sm:p-10 text-center">
     
     <!-- Başlık -->
     <h1 class="text-3xl sm:text-3xl md:text-4xl font-extrabold mb-4">
