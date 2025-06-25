@@ -8,5 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://bursayakincekici.com",
   integrations: [sitemap()]
 });
