@@ -1,7 +1,8 @@
 export const blogs = [
   {
     id: 1,
-    date: "20/01/2025",
+    date: "2025-01-20",
+    labels: ["bursa-yol-yardım", "bursa-yakin-cekici", "bursa-cekici-hizmeti", "acil-cekici-bursa", "ates-oto-cekici", "yol-yardim-rehberi", "bursa-arac-kurtarma", "acil-yol-yardim"],
     title: "Yolda Kaldığınızda Ne Yapmalısınız? Bursa'da Acil Çözüm Rehberi",
     image: "/images/blog1.webp",
     desc: "Bursa’da aracınızla yolda kaldığınızda yapmanız gereken adımları bu rehberde bulabilirsiniz.",
@@ -19,7 +20,8 @@ export const blogs = [
   },
   {
     id: 2,
-    date: "17/02/2025",
+    date: "2025-02-10",
+    labels: ["oto-kurtarma-bursa", "guvenilir-cekici", "ates-oto-cekici", "cekici-secimi", "bursa-yol-yardim", "yol-yardim-hizmeti", "bursa-cekici-firmalari"],
     title: "Oto Kurtarma Hizmeti Seçerken Nelere Dikkat Etmelisiniz?",
     image: "/images/blog2.webp",
     desc: "Bursa’da güvenilir bir çekici veya kurtarıcı ararken dikkat etmeniz gereken temel noktaları.",
@@ -37,7 +39,8 @@ export const blogs = [
   },
   {
     id: 3,
-    date: "15/03/2025",
+    date: "2025-03-19",
+    labels: ["ates-oto-cekici", "bursa-yol-yardim", "cekici-hizmeti-bursa", "oto-kurtarma-bursa", "bursa-yakin-cekici", "7-24-yol-yardim", "acil-cekici"],
     title: "Bursa Ateş Oto Kurtarma: Yol Yardım Hizmeti",
     image: "/images/ates3.webp",
     desc: "Bursa Ateş Oto Kurtarma, 7/24 hızlı ve güvenilir yol yardım hizmeti sunar.",

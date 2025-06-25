@@ -9,7 +9,12 @@ const breadcrumbs = [
     { label: "Blog", href: "/blog"},
 ]
 ---
-<Layout>
+<Layout
+  title="Bursa Oto Çekici Blog - Güncel Yol Yardım ve Kurtarma Bilgileri"
+  description="Bursa’da oto çekici, yol yardım ve araç kurtarma hizmetleri hakkında güncel haberler, ipuçları ve profesyonel tavsiyeler. Güvenilir çekici hizmetleri blogumuzda."
+  jsonLdType="breadcrumb"
+  jsonLdData={{ breadcrumbs: breadcrumbs }}
+>
     <div class="mt-20">
         <Banner 
         title="Tüm Bloglar"
