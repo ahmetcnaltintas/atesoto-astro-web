@@ -60,7 +60,7 @@ export const blogs = [
         <li>Uygun fiyat ve şeffaf hizmet anlayışı</li>
       </ul>
 
-      <p>Yolda kalma durumunda tek yapmanız gereken <a href="/iletisim" style="color:#b30701; font-weight:bold;">Bursa Ateş Oto Kurtarma</a> ile iletişime geçmek. Alanında lider firmamız, size en hızlı ve güvenilir çözümleri sunacaktır.</p>
+      <p>Yolda kalma durumunda tek yapmanız gereken <a href="/iletisim" title="Ateş Oto Kurtarma İletişim" style="color:#b30701; font-weight:bold;">Bursa Ateş Oto Kurtarma</a> ile iletişime geçmek. Alanında lider firmamız, size en hızlı ve güvenilir çözümleri sunacaktır.</p>
     `
   },
 ]

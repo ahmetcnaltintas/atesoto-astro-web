@@ -29,9 +29,9 @@ const socialLinks = [
       <!-- Logo ve Açıklama -->
       <div class="lg:col-span-3">
         <div class="mb-6">
-          <a href="/" class="inline-block">
+          <a href="/" title="Bursa Yakın Çekici" class="inline-block">
             <div class="flex items-center space-x-3">
-              <img src="/images/ateslogo.png" class="w-40" alt="ates oto kurtarma logo" title="Ateş Oto Kurtarma Logo">
+              <img src="/images/ateslogo.png" class="w-40" alt="ates oto cekici logo" title="Ateş Oto Çekici Logo">
             </div>
           </a>
         </div>
@@ -72,6 +72,7 @@ const socialLinks = [
             <li>
               <a 
                 href={link.href}
+                title={link.name}
                 class="text-gray-600 hover:text-black transition-colors duration-200 hover:underline"
               >
                 {link.name}
@@ -91,6 +92,7 @@ const socialLinks = [
               <li>
                 <a 
                   href="/"
+                  title={link.name}
                   class="text-gray-600 hover:text-black transition-colors duration-200 hover:underline"
                 >
                   {link.name}
@@ -119,6 +121,7 @@ const socialLinks = [
           {socialLinks.map((social) => (
             <a
               href={social.href}
+              title="Ateş Oto Kurtarma Sosyal Medya"
               class="w-10 h-10 bg-white hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group"
               aria-label={social.name}
             >
