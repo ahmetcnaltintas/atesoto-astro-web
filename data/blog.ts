@@ -3,7 +3,7 @@ export const blogs = [
     id: 1,
     date: "20/01/2025",
     title: "Yolda Kaldığınızda Ne Yapmalısınız? Bursa'da Acil Çözüm Rehberi",
-    image: "/images/blog1.jpg",
+    image: "/images/blog1.webp",
     desc: "Bursa’da aracınızla yolda kaldığınızda yapmanız gereken adımları bu rehberde bulabilirsiniz.",
     content: `
         Bursa’da seyir halindeyken aracınız arıza yaptıysa panik yapmayın. İşte adım adım yapmanız gerekenler:
@@ -21,7 +21,7 @@ export const blogs = [
     id: 2,
     date: "17/02/2025",
     title: "Oto Kurtarma Hizmeti Seçerken Nelere Dikkat Etmelisiniz?",
-    image: "/images/blog2.jpg",
+    image: "/images/blog2.webp",
     desc: "Bursa’da güvenilir bir çekici veya kurtarıcı ararken dikkat etmeniz gereken temel noktaları.",
     content: `
         Oto kurtarma hizmeti almak ciddi bir iştir. Bursa'da hizmet alırken şunlara dikkat edin:
@@ -39,7 +39,7 @@ export const blogs = [
     id: 3,
     date: "15/03/2025",
     title: "Bursa Ateş Oto Kurtarma: Yol Yardım Hizmeti",
-    image: "/images/ates3.jpg",
+    image: "/images/ates3.webp",
     desc: "Bursa Ateş Oto Kurtarma, 7/24 hızlı ve güvenilir yol yardım hizmeti sunar.",
     slug: "bursa-ates-oto-kurtarma-profesyonel-yol-yardim",
     content: `
