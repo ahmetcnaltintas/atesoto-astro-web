@@ -2,16 +2,23 @@
 import { abouts } from "../../data/about"
 ---
 <section class="bg-white">
-    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-        <div class="font-light text-gray-700 sm:text-lg">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">{abouts.title}</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                {abouts.description}
-            </p>
-        </div>
-        <div class="grid grid-cols-2 gap-4 mt-8">
-            <img class="w-full rounded-lg" src={abouts.image1} alt="Ates Oto Kurtarma Hakkımızda Görsel 1">
-            <img class="mt-4 w-full lg:mt-10 rounded-lg" src={abouts.image2} alt="Ates Oto Kurtarma Hakkımızda Görsel 2">
-        </div>
+  <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+    
+    <!-- Sol taraf: Başlık ve açıklama -->
+    <div class="font-light text-gray-700 sm:text-lg">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">{abouts.title}</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {abouts.description}
+      </p>
     </div>
+
+    <!-- Sağ taraf: Görseller -->
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mt-8">
+      <img
+        class="w-full h-50 md:h-100 lg:h-100 rounded-xl object-cover"
+        src={abouts.image1}
+        alt="Ates Oto Kurtarma Hakkımızda Görsel"
+      />
+    </div>
+  </div>
 </section>
