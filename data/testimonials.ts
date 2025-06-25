@@ -8,21 +8,16 @@ export const testimonials: Testimonial[] = [
     {
         name: "Ahmet Yılmaz",
         location: "Bursa / Nilüfer",
-        message: "Gece yarısı yolda kaldım, çok hızlı geldiler. Personel çok kibar ve profesyoneldi. Fiyat da çok makuldü. Kesinlikle tavsiye ederim.",
+        message: "Gece yarısı yolda kaldım, çok hızlı ve profesyonel şekilde geldiler. Personel çok kibar ve işini iyi yapan insanlardı. Fiyatı da makuldü. Böyle güvenilir hizmet bulmak zor, kesinlikle tavsiye ederim.",
     },
     {
-        name: "Mehmet Kaya",
-        location: "Bursa / Osmangazi",
-        message: "Gece yarısı yolda kaldım, çok hızlı geldiler. Personel çok kibar ve profesyoneldi. Fiyat da çok makuldü. Kesinlikle tavsiye ederim.",
-    },
-    {
-        name: "Selin Demir",
+        name: "Elif Demir",
         location: "Bursa / Yıldırım",
-        message: "Gece yarısı yolda kaldım, çok hızlı geldiler. Personel çok kibar ve profesyoneldi. Fiyat da çok makuldü. Kesinlikle tavsiye ederim.",
+        message: "Yolda kaldığınızda panik yapmadan aramanız gereken ilk yer burası! Hem iletişimleri çok iyi hem de çekici hemen geldi. Bursa'da böyle profesyonel bir çekici hizmeti bulmak çok güzel.",
     },
     {
         name: "Caner Koçer",
-        location: "Bursa / Kestel",
-        message: "Gece yarısı yolda kaldım, çok hızlı geldiler. Personel çok kibar ve profesyoneldi. Fiyat da çok makuldü. Kesinlikle tavsiye ederim.",
+        location: "Bursa / Gürsu",
+        message: "Uzun yolda lastik patladı, ne yapacağımı bilemedim. bursayakincekici.com'u aradım, 20 dakikada geldiler. Hem hızlı hem de çok ilgiliydiler. Bursa'da çekici hizmeti denince artık ilk tercihim burası.",
     },
 ]
