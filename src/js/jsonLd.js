@@ -20,7 +20,7 @@ export default function jsonLDGenerator({ type, post, url, data }) {
     telephone: info.phone,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "", // Daha detaylı adres bilgisi ekleyebilirsiniz
+      streetAddress: "Bursa/Yıldırım Eğitim Mahallesi", 
       addressLocality: "Bursa",
       postalCode: "16000", // Bursa için genel bir posta kodu
       addressCountry: "TR",
