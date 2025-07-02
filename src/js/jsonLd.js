@@ -13,7 +13,7 @@ export default function jsonLDGenerator({ type, post, url, data }) {
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Ateş Oto Kurtarma",
+    name: "Bursa Yakın Çekici - Ateş Oto Kurtarma",
     image: `${import.meta.env.SITE}og-image.png`,
     "@id": url,
     url: import.meta.env.SITE,
