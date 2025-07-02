@@ -42,7 +42,7 @@ export const galleryImages = [
   {
     id: 6,
     src: "/images/galeri/ates9.webp",
-    alt: "Ateş Oto Çekici ile araç taşıma hizmeti",
+    alt: "Bursa Yakin Cekici - Ateş Oto Kurtarma ile araç taşıma hizmeti",
     title: "Profesyonel Ağır Vasıta ve Araç Taşıma Hizmeti",
     category: "Ağır Vasıta Çekici Hizmeti",
     description: "Çekicimizle ağır vasıta ve araç taşıma işlemlerinde güvenilir çözümler sunuyoruz."
