@@ -1,40 +1,95 @@
 ---
-import { info } from "../../data/info"
-import Button from "./Button.astro"
+import { info } from "../../data/info";
+import Button from "./Button.astro";
 ---
+
 <header class="fixed top-0 left-0 w-full z-50 bg-white md:bg-white shadow-md">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="/" title="Bursa Yakın Çekici" class="text-xl font-bold text-red-600">
-          <img src="/images/ateslogo.png" alt="logo" class="w-40 h-15">
+        <a
+          href="/"
+          title="Bursa Yakın Çekici"
+          class="text-xl font-bold text-red-600"
+        >
+          <img src="/images/ateslogo.png" alt="logo" class="w-40 h-15" />
         </a>
       </div>
 
       <!-- Menü -->
       <nav class="hidden md:flex space-x-8 font-medium text-gray-700">
-        <a href="/" title="Bursa Yakin Cekici - Ateş Oto Kurtarma" class="hover:text-red-600 transition">Ana Sayfa</a>
-        <a href="/hakkimizda" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hakkımızda" class="hover:text-red-600 transition">Hakkımızda</a>
-        <a href="/galeri" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Galeri" class="hover:text-red-600 transition">Galeri</a>
-        <a href="/hizmetler" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmetler" class="hover:text-red-600 transition">Hizmetler</a>
-        <a href="/blog" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Blog" class="hover:text-red-600 transition">Blog</a>
-        <a href="/iletisim" title="Bursa Yakin Cekici - Ateş Oto Kurtarma İletişim" class="hover:text-red-600 transition">İletişim</a>
+        <a
+          href="/"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma"
+          class="hover:text-red-600 transition">Ana Sayfa</a
+        >
+        <a
+          href="/hakkimizda"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hakkımızda"
+          class="hover:text-red-600 transition">Hakkımızda</a
+        >
+        <a
+          href="/galeri"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma Galeri"
+          class="hover:text-red-600 transition">Galeri</a
+        >
+        <a
+          href="/hizmetler"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmetler"
+          class="hover:text-red-600 transition">Hizmetler</a
+        >
+        <a
+          href="/blog"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma Blog"
+          class="hover:text-red-600 transition">Blog</a
+        >
+        <a
+          href="/iletisim"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma İletişim"
+          class="hover:text-red-600 transition">İletişim</a
+        >
       </nav>
 
       <!-- "Hemen Ara" Butonu - sadece büyük ekran -->
       <div class="hidden lg:block">
-        <Button variant="primary" size="md" href={`tel:${info.tel}`}>
-          Hemen Ara
+        <Button
+          variant="primary"
+          size="md"
+          href={`tel:${info.tel}`}
+          class:list="flex items-center gap-2 px-4 py-2 bg-primary text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] shadow-lg rounded-xl"
+        >
+          <span class="flex items-center gap-2 sm:gap-3">
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
+            {info.phone}
+          </span>
         </Button>
+
       </div>
 
       <!-- Hamburger Menü (Mobil) -->
       <div class="md:hidden">
-        <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        <button
+          id="mobile-menu-button"
+          class="text-gray-700 focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
@@ -43,23 +98,46 @@ import Button from "./Button.astro"
 
   <!-- Mobil Menü -->
   <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-white shadow">
-    <a href="/" title="Bursa Yakin Cekici - Ateş Oto Kurtarma" class="block py-2 text-gray-700 hover:text-red-600">Ana Sayfa</a>
-    <a href="/hakkimizda" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hakkımızda" class="block py-2 text-gray-700 hover:text-red-600">Hakkımızda</a>
-    <a href="/galeri" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Galeri" class="block py-2 text-gray-700 hover:text-red-600">Galeri</a>
-    <a href="/hizmetler" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmetler" class="block py-2 text-gray-700 hover:text-red-600">Hizmetler</a>
-    <a href="/blog" title="Bursa Yakin Cekici - Ateş Oto Kurtarma Blog" class="block py-2 text-gray-700 hover:text-red-600">Blog</a>
-    <a href="/iletisim" title="Bursa Yakin Cekici - Ateş Oto Kurtarma İletişim" class="block py-2 text-gray-700 hover:text-red-600">İletişim</a>
+    <a
+      href="/"
+      title="Bursa Yakin Cekici - Ateş Oto Kurtarma"
+      class="block py-2 text-gray-700 hover:text-red-600">Ana Sayfa</a
+    >
+    <a
+      href="/hakkimizda"
+      title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hakkımızda"
+      class="block py-2 text-gray-700 hover:text-red-600">Hakkımızda</a
+    >
+    <a
+      href="/galeri"
+      title="Bursa Yakin Cekici - Ateş Oto Kurtarma Galeri"
+      class="block py-2 text-gray-700 hover:text-red-600">Galeri</a
+    >
+    <a
+      href="/hizmetler"
+      title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmetler"
+      class="block py-2 text-gray-700 hover:text-red-600">Hizmetler</a
+    >
+    <a
+      href="/blog"
+      title="Bursa Yakin Cekici - Ateş Oto Kurtarma Blog"
+      class="block py-2 text-gray-700 hover:text-red-600">Blog</a
+    >
+    <a
+      href="/iletisim"
+      title="Bursa Yakin Cekici - Ateş Oto Kurtarma İletişim"
+      class="block py-2 text-gray-700 hover:text-red-600">İletişim</a
+    >
   </div>
 
-    <script>
-    const button = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
+  <script>
+    const button = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
 
-    if(button && menu) {
-        button.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        });
+    if (button && menu) {
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
     }
-    </script>
-
+  </script>
 </header>
