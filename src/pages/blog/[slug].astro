@@ -63,15 +63,6 @@ const formatDate = (dateString: string) => {
           
           <!-- İçerik -->
           <div class="p-6 lg:p-8">
-            <!-- Meta Bilgiler -->
-            <div class="flex items-center gap-4 text-sm text-gray-600 mb-6">
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-                <span>{formatDate(blog.date)}</span>
-              </div>
-            </div>
             
             <!-- Blog Başlığı -->
             <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -153,9 +144,6 @@ const formatDate = (dateString: string) => {
                         <h4 class="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-1">
                           {otherBlog.title}
                         </h4>
-                        <p class="text-xs text-gray-500">
-                          {formatDate(otherBlog.date)}
-                        </p>
                       </div>
                     </div>
                   </a>
