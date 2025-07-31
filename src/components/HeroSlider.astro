@@ -1,5 +1,6 @@
 ---
 import { slides } from "../../data/slides"
+import { info } from "../../data/info"
 import Button from "./Button.astro"
 ---
 
@@ -20,10 +21,19 @@ import Button from "./Button.astro"
           <div class={`absolute inset-0 bg-gradient-to-r from-${slide.color}-600/30 to-${slide.color}-800/30`}>
             <div class="flex items-center justify-center h-full">
               <div class="text-center text-white px-4">
-                <h1 class="mb-4 text-4xl font-extrabold md:text-5xl lg:text-6xl">{slide.title}</h1>
+                <h1 class="mb-4 text-3xl font-extrabold md:text-5xl lg:text-6xl">{slide.title}</h1>
                 <p class="mb-6 text-lg font-normal lg:text-xl">{slide.desc}</p>
-                <Button variant="primary" size="md" href="/iletisim">
-                  İletişime Geç
+                <Button variant="primary" size="lg" href={`tel:${info.tel}`}>
+                  <span class="flex items-center gap-2 sm:gap-3">
+                    <svg
+                      class="w-5 h-5 mr-1 sm:mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      >
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    </svg>
+                    {info.phone}
+                  </span>
                 </Button>
               </div>
             </div>

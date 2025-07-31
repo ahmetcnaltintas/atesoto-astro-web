@@ -5,19 +5,22 @@ export interface Testimonial {
 }
 
 export const testimonials: Testimonial[] = [
-    {
-        name: "Uğurcan Öztürk",
-        location: "Bursa / Nilüfer",
-        message: "Gece yarısı yolda kaldım, çok hızlı ve profesyonel şekilde geldiler. Personel çok kibar ve işini iyi yapan insanlardı. Fiyatı da makuldü. Böyle güvenilir hizmet bulmak zor, kesinlikle tavsiye ederim.",
-    },
-    {
-        name: "Caner Koçer",
-        location: "Bursa / Yıldırım",
-        message: "Yolda kaldığınızda panik yapmadan aramanız gereken ilk yer burası! Hem iletişimleri çok iyi hem de çekici hemen geldi. Bursa'da böyle profesyonel bir çekici hizmeti bulmak çok güzel.",
-    },
-    {
-        name: "Berkcan Beyoğlu",
-        location: "Bursa / Gürsu",
-        message: "Uzun yolda lastik patladı, ne yapacağımı bilemedim. bursayakincekici.com'u aradım, 20 dakikada geldiler. Hem hızlı hem de çok ilgiliydiler. Bursa'da çekici hizmeti denince artık ilk tercihim burası.",
-    },
-]
+  {
+    name: "Uğurcan Öztürk",
+    location: "Bursa / Nilüfer",
+    message:
+      "Gece yarısı aracım bozuldu ve Bursa yakın çekici ararken Ateş Oto Kurtarma'yı buldum. Çok hızlı geldiler, profesyonel ve güler yüzlüydüler. Hem uygun fiyatlı hem de güvenilir bir oto kurtarma hizmeti.",
+  },
+  {
+    name: "Caner Koçer",
+    location: "Bursa / Yıldırım",
+    message:
+      "Yolda kaldığınızda Bursa çekici hizmeti için ilk aranması gereken yer bence burası! İletişimleri çok iyi, acil yol yardımı için dakikalar içinde geldiler. Böyle profesyonel bir oto kurtarıcıyı Bursa’da bulmak harika.",
+  },
+  {
+    name: "Berkcan Beyoğlu",
+    location: "Bursa / Gürsu",
+    message:
+      "Uzun yolda lastiğim patladı, ne yapacağımı bilemedim. Bursa yakın oto kurtarma olarak arattım, bursayakincekici.com hemen çıktı. 20 dakikada geldiler, çok ilgililerdi.",
+  }
+];
