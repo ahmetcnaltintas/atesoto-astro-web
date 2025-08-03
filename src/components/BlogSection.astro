@@ -3,8 +3,8 @@
 export interface Props {
   title?: string;
   subtitle?: string;
-  showAllButton?: boolean; // Bu prop ekleniyor
-  limit?: number;          // Gösterilecek maksimum blog sayısı
+  showAllButton?: boolean;
+  limit?: number;         
 }
 
 const { title = "Son Blog Yazıları", subtitle = "En güncel içeriklerimizi keşfedin", showAllButton = true, limit } = Astro.props;

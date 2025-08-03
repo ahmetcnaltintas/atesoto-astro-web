@@ -15,9 +15,10 @@ import { services } from "../../data/services"
         return (
           <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
             <div class={`w-16 h-16 ${service.iconBg} rounded-lg flex items-center justify-center mb-4`}>
-              <img src={service.iconPath} class="w-16 h-16" alt={service.title} />
+              <img src={service.iconPath} class={service.iconPath === "/images/traktor.svg" || "/images/truckicon.svg" ? "w-12 h-12" : "w-20 h-20"} alt={service.title} />
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              <a href={`/hizmetler/${service.slug}`}>{service.title}</a></h3>
             <p class="text-gray-600 mb-4">{service.description}</p>
             <ul class="text-sm text-gray-500 space-y-1">
               {service.features.map(feature => (

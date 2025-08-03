@@ -1,7 +1,7 @@
 export const faqs = [
   {
     title: "Bursa'da oto kurtarma hizmetine ne kadar sürede ulaşıyorsunuz?",
-    desc: "Bursa merkezde genellikle 15-20 dakika içinde olay yerine ulaşıyoruz. Acil yol yardımı hizmetimizle, trafik durumuna ve konuma göre sizi önceden bilgilendiriyoruz. Uzak bölgeler için ortalama varış süresini aradığınızda bildiriyoruz.",
+    desc: "Bursa merkezde genellikle 20-60 dakika içinde olay yerine ulaşıyoruz. Acil yol yardımı hizmetimizle, trafik durumuna ve konuma göre sizi önceden bilgilendiriyoruz. Uzak bölgeler için ortalama varış süresini aradığınızda bildiriyoruz.",
   },
   {
     title: "Hangi araçlar için çekici hizmeti veriyorsunuz?",
@@ -13,6 +13,6 @@ export const faqs = [
   },
   {
     title: "Çekici hizmeti sonrası ödeme seçenekleriniz nelerdir?",
-    desc: "Ateş Oto Kurtarma olarak nakit, kredi kartı ve havale ile ödeme kabul ediyoruz. Kurumsal müşterilerimize faturalı hizmet ve özel ödeme seçenekleri sunuyoruz. Hizmet sonrası fatura tarafınıza iletilir.",
+    desc: "Ateş Oto Kurtarma olarak nakit, kredi kartı ve havale ile ödeme kabul ediyoruz. Kurumsal müşterilerimize faturalı hizmet ve özel ödeme seçenekleri sunuyoruz.",
   }
 ];

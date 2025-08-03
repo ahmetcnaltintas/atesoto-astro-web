@@ -1,0 +1,252 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Banner from '../../components/Banner.astro'
+import CallAction from '../../components/CallAction.astro'
+import { areas } from '../../../data/serviceAreas'
+import { services } from '../../../data/services'
+import { info } from '../../../data/info'
+
+export async function getStaticPaths() {
+  return areas.map(area => ({
+    params: { slug: area.slug }
+  }))
+}
+
+const { slug } = Astro.params
+const area = areas.find(b => b.slug === slug)
+
+if (!area) {
+  throw new Error('Hizmet Bölgesi bulunamadı')
+}
+
+// Diğer bölgeleri getir (mevcut bölge hariç)
+const otherAreas = areas
+  .filter(a => a.slug !== slug && (a.label === "İlce" || a.label === "Sehir"));
+
+const breadcrumbs = [
+  { label: "Anasayfa", href: "/" },
+  { label: "Hizmet Bölgeleri", href: "/hizmet-bolgeleri" },
+  { label: area.name, href: `/hizmet-bolgeleri/${area.slug}` },
+]
+
+// SEO için meta bilgiler
+const pageTitle = `${area.name} Oto Kurtarma Hizmeti | Ateş Oto Kurtarma`
+const pageDescription = `${area.name} bölgesinde 7/24 profesyonel oto kurtarma hizmeti. Çekici, yol yardımı, lastik değişimi ve acil müdahale hizmetleri.`
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="mt-20">
+    <Banner
+      title={`${area.name} Oto Kurtarma`}
+      image="/images/page-banner.webp"
+      breadcrumbs={breadcrumbs}
+    />
+  </div>
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Ana İçerik -->
+      <div class="lg:w-2/3">
+        <!-- Giriş Bölümü -->
+        <div class="bg-white rounded-lg shadow-sm p-6 lg:p-8 mb-8">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-2xl lg:text-3xl font-bold text-gray-900">{area.name} Oto Kurtarma Hizmeti</h1>
+              <p class="text-gray-600 mt-1">7/24 Profesyonel Yol Yardımı</p>
+            </div>
+          </div>
+          
+          <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="text-lg leading-relaxed mb-6">
+              <strong>{area.name}</strong> bölgesinde araç arızası yaşadığınızda, Ateş Oto Kurtarma ekibi olarak 7/24 hizmetinizdeyiz. 
+              Profesyonel ekibimiz ve modern çekici filomuzla en kısa sürede yanınızda olmaya hazırız.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hizmetlerimiz -->
+        <div class="bg-white rounded-lg shadow-sm p-6 lg:p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            {area.name} Bölgesindeki Hizmetlerimiz
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="flex gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Çekici Hizmeti</h3>
+                <p class="text-sm text-gray-600">Araç çekme ve taşıma hizmetleri</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Yol Yardımı</h3>
+                <p class="text-sm text-gray-600">Acil durum müdahale hizmetleri</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Neden Bizi Seçmelisiniz -->
+        <div class="bg-white rounded-lg shadow-sm p-6 lg:p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Neden Ateş Oto Kurtarma?</h2>
+          
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">7/24 Hizmet</h3>
+                <p class="text-gray-600">Gece gündüz, hafta sonu ve tatil günleri dahil her zaman hizmetinizdeyiz.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Profesyonel Ekip</h3>
+                <p class="text-gray-600">Deneyimli ve eğitimli teknisyenlerimiz ile güvenli hizmet sunuyoruz.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Uygun Fiyat</h3>
+                <p class="text-gray-600">Şeffaf ve rekabetçi fiyatlarımız ile kaliteli hizmet sunuyoruz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="lg:w-1/3">
+        <div class="sticky top-8 space-y-6">
+          <!-- Hızlı İletişim -->
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              Hızlı İletişim
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-gray-600">Telefon:</span>
+                <a href={`tel:+9${info.tel}`} class="text-red-600 hover:text-red-700 font-medium">{info.phone}</a>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-gray-600">WhatsApp:</span>
+                <a href={`https://wa.me/${info.whatsapp}`} class="text-green-600 hover:text-green-700 font-medium">{info.phone}</a>
+              </div>
+              <div class="text-xs text-gray-500 bg-gray-50 p-3 rounded-lg">
+                <strong>Çalışma Saatleri:</strong><br>
+                7 gün 24 saat hizmet
+              </div>
+            </div>
+          </div>
+
+          <!-- Hizmet Türleri -->
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+              Hizmet Türlerimiz
+            </h3>
+            <div class="space-y-3">
+              {services.slice(0, 5).map((service) => (
+                <a 
+                  href={`/hizmetler/${service.slug}`} 
+                  class="block group hover:bg-gray-50 rounded-lg p-3 transition-colors border border-gray-100"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                      {service.title}
+                    </span>
+                    <svg class="w-4 h-4 text-gray-400 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Diğer Hizmet Bölgeleri -->
+          {otherAreas.length > 0 && (
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+                Diğer Hizmet Bölgelerimiz
+              </h3>
+              <div class="space-y-3">
+                {otherAreas.map((otherArea) => (
+                  <a 
+                    href={`/hizmet-bolgeleri/${otherArea.slug}`} 
+                    class="block group hover:bg-gray-50 rounded-lg p-3 transition-colors border border-gray-100"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                        {otherArea.name}
+                      </span>
+                      <svg class="w-4 h-4 text-gray-400 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CallAction />
+</Layout>
+
+<style>
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #1f2937;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .prose p {
+    margin-bottom: 1em;
+  }
+  
+  .prose ul, .prose ol {
+    margin-bottom: 1em;
+  }
+</style>

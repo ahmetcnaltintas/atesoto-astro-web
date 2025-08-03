@@ -1,0 +1,283 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Banner from "../../components/Banner.astro";
+import CallAction from "../../components/CallAction.astro";
+import { areas } from "../../../data/serviceAreas";
+
+const breadcrumbs = [
+  { label: "Anasayfa", href: "/" },
+  { label: "Hizmet Bölgeleri", href: "/hizmet-bolgeleri" },
+];
+
+// Bölgeleri kategorilere ayır
+const cities = areas.filter(area => area.label === "Sehir");
+const districts = areas.filter(area => area.label === "İlce");
+const neighborhoods = areas.filter(area => area.label === "Mahalle");
+
+// SEO için meta bilgiler
+const pageTitle = "Hizmet Bölgeleri | Ateş Oto Kurtarma - 7/24 Yol Yardımı";
+const pageDescription = "Ateş Oto Kurtarma olarak geniş hizmet ağımızla şehir, ilçe ve semt bazında 7/24 oto kurtarma hizmeti sunuyoruz. Hizmet verdiğimiz bölgeleri inceleyin.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="mt-20">
+    <Banner
+      title="Hizmet Bölgeleri"
+      image="/images/page-banner.webp"
+      breadcrumbs={breadcrumbs}
+    />
+  </div>
+
+  <div class="container mx-auto px-4 py-12">
+    <!-- Giriş Bölümü -->
+    <div class="text-center mb-12">
+      <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        7/24 Hizmet Verdiğimiz Bölgeler
+      </h1>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Geniş hizmet ağımızla şehir merkezinden ilçelere, semtlerden köylere kadar 
+        her yerde profesyonel oto kurtarma hizmeti sunuyoruz.
+      </p>
+    </div>
+
+    <!-- Tab Menü ve İçerik -->
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <!-- Tab Headers -->
+      <div class="border-b border-gray-200">
+        <nav class="flex" id="tab-nav">
+          <button 
+            class="tab-button flex-1 py-4 px-6 text-center font-medium border-b-2 transition-colors duration-200 border-red-500 text-red-600 bg-red-50" 
+            data-tab="cities"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+              <span>Şehirler</span>
+              <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">{cities.length}</span>
+            </div>
+          </button>
+          <button 
+            class="tab-button flex-1 py-4 px-6 text-center font-medium border-b-2 transition-colors duration-200 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" 
+            data-tab="districts"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>İlçeler</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">{districts.length}</span>
+            </div>
+          </button>
+          <button 
+            class="tab-button flex-1 py-4 px-6 text-center font-medium border-b-2 transition-colors duration-200 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" 
+            data-tab="neighborhoods"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+              <span>Semtler</span>
+              <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">{neighborhoods.length}</span>
+            </div>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="p-6">
+        <!-- Şehirler Tab -->
+        <div id="cities-content" class="tab-content">
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Hizmet Verdiğimiz Şehirler</h2>
+            <p class="text-gray-600">Ana şehir merkezlerinde 7/24 hızlı müdahale garantisi sunuyoruz.</p>
+          </div>
+          {cities.length > 0 ? (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {cities.map((area) => (
+                <a 
+                  href={`/hizmet-bolgeleri/${area.slug}`}
+                  class="group bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-4 hover:from-red-100 hover:to-red-200 transition-all duration-300 hover:shadow-md border border-red-200"
+                >
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 group-hover:text-red-700 transition-colors">
+                          {area.name}
+                        </h3>
+                        <p class="text-sm text-gray-600">Şehir Merkezi</p>
+                      </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="text-center py-8 text-gray-500">
+              <p>Henüz şehir bilgisi bulunmamaktadır.</p>
+            </div>
+          )}
+        </div>
+
+        <!-- İlçeler Tab -->
+        <div id="districts-content" class="tab-content hidden">
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Hizmet Verdiğimiz İlçeler</h2>
+            <p class="text-gray-600">İlçe bazında geniş kapsamlı oto kurtarma hizmetlerimiz.</p>
+          </div>
+          {districts.length > 0 ? (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {districts.map((area) => (
+                <a 
+                  href={`/hizmet-bolgeleri/${area.slug}`}
+                  class="group bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 hover:from-blue-100 hover:to-blue-200 transition-all duration-300 hover:shadow-md border border-blue-200"
+                >
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
+                          {area.name}
+                        </h3>
+                        <p class="text-sm text-gray-600">İlçe</p>
+                      </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="text-center py-8 text-gray-500">
+              <p>Henüz ilçe bilgisi bulunmamaktadır.</p>
+            </div>
+          )}
+        </div>
+
+        <!-- Semtler Tab -->
+        <div id="neighborhoods-content" class="tab-content hidden">
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Hizmet Verdiğimiz Semtler</h2>
+            <p class="text-gray-600">Semt seviyesinde detaylı hizmet kapsamımız.</p>
+          </div>
+          {neighborhoods.length > 0 ? (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {neighborhoods.map((area) => (
+                <a 
+                  href={`/hizmet-bolgeleri/${area.slug}`}
+                  class="group bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 hover:from-green-100 hover:to-green-200 transition-all duration-300 hover:shadow-md border border-green-200"
+                >
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 group-hover:text-green-700 transition-colors">
+                          {area.name}
+                        </h3>
+                        <p class="text-sm text-gray-600">Semt</p>
+                      </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="text-center py-8 text-gray-500">
+              <p>Henüz semt bilgisi bulunmamaktadır.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <CallAction />
+</Layout>
+
+<script>
+  // Tab functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const targetTab = this.getAttribute('data-tab');
+
+        // Remove active classes from all buttons
+        tabButtons.forEach(btn => {
+          btn.classList.remove('border-red-500', 'text-red-600', 'bg-red-50');
+          btn.classList.remove('border-blue-500', 'text-blue-600', 'bg-blue-50');
+          btn.classList.remove('border-green-500', 'text-green-600', 'bg-green-50');
+          btn.classList.add('border-transparent', 'text-gray-500');
+        });
+
+        // Hide all tab contents
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+        });
+
+        // Add active class to clicked button
+        if (targetTab === 'cities') {
+          this.classList.add('border-red-500', 'text-red-600', 'bg-red-50');
+        } else if (targetTab === 'districts') {
+          this.classList.add('border-blue-500', 'text-blue-600', 'bg-blue-50');
+        } else if (targetTab === 'neighborhoods') {
+          this.classList.add('border-green-500', 'text-green-600', 'bg-green-50');
+        }
+        this.classList.remove('border-transparent', 'text-gray-500');
+
+        // Show target tab content
+        const targetContent = document.getElementById(targetTab + '-content');
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-button {
+    transition: all 0.2s ease;
+  }
+  
+  .tab-content {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,6 +1,8 @@
 ---
 import { info } from "../../data/info";
 import Button from "./Button.astro";
+import { areas } from "../../data/serviceAreas";
+
 ---
 
 <header class="fixed top-0 left-0 w-full z-50 bg-white md:bg-white shadow-md">
@@ -39,6 +41,91 @@ import Button from "./Button.astro";
           title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmetler"
           class="hover:text-red-600 transition">Hizmetler</a
         >
+        
+        <!-- Hizmet Bölgeleri Dropdown -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-1 hover:text-red-600 transition focus:outline-none"
+            type="button"
+          >
+            <span>Hizmet Bölgeleri</span>
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-2">
+              <!-- Ana Hizmet Bölgeleri Linki -->
+              <a
+                href="/hizmet-bolgeleri"
+                title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmet Bölgeleri"
+                class="block px-4 py-2 text-gray-700 hover:bg-red-50 hover:text-red-600 transition font-medium border-b border-gray-100"
+              >
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  Tüm Hizmet Bölgeleri
+                </div>
+              </a>
+              
+              <!-- Şehirler ve İlçeler Grid -->
+              <div class="px-4 py-2 grid grid-cols-2 gap-4">
+                <!-- Şehirler -->
+                <div>
+                  <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Şehirler</h4>
+                  <div class="space-y-1">
+                    {areas.filter(area => area.label === "Sehir").slice(0, 4).map((area) => (
+                      <a
+                        href={`/hizmet-bolgeleri/${area.slug}`}
+                        title={`${area.name} Oto Kurtarma Hizmeti`}
+                        class="block py-1 text-sm text-gray-600 hover:text-red-600 transition"
+                      >
+                        {area.name}
+                      </a>
+                    ))}
+                    {areas.filter(area => area.label === "Sehir").length > 4 && (
+                      <a
+                        href="/hizmet-bolgeleri"
+                        class="block py-1 text-xs text-red-600 hover:text-red-700 font-medium"
+                      >
+                        + Daha fazla...
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <!-- İlçeler -->
+                <div>
+                  <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">İlçeler</h4>
+                  <div class="space-y-1">
+                    {areas.filter(area => area.label === "İlce").slice(0, 4).map((area) => (
+                      <a
+                        href={`/hizmet-bolgeleri/${area.slug}`}
+                        title={`${area.name} Oto Kurtarma Hizmeti`}
+                        class="block py-1 text-sm text-gray-600 hover:text-red-600 transition"
+                      >
+                        {area.name}
+                      </a>
+                    ))}
+                    {areas.filter(area => area.label === "İlce").length > 4 && (
+                      <a
+                        href="/hizmet-bolgeleri"
+                        class="block py-1 text-xs text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        + Daha fazla...
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <a
           href="/blog"
           title="Bursa Yakin Cekici - Ateş Oto Kurtarma Blog"
@@ -118,6 +205,84 @@ import Button from "./Button.astro";
       title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmetler"
       class="block py-2 text-gray-700 hover:text-red-600">Hizmetler</a
     >
+    
+    <!-- Mobil Hizmet Bölgeleri Dropdown -->
+    <div class="border-t border-gray-200 pt-2 mt-2">
+      <button
+        id="mobile-areas-button"
+        class="flex items-center justify-between w-full py-2 text-gray-700 hover:text-red-600 transition"
+        type="button"
+      >
+        <span>Hizmet Bölgeleri</span>
+        <svg id="mobile-areas-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      
+      <!-- Mobil Dropdown İçerik -->
+      <div id="mobile-areas-content" class="hidden bg-gray-50 rounded-lg p-3 mt-2">
+        <!-- Ana Link -->
+        <a
+          href="/hizmet-bolgeleri"
+          title="Bursa Yakin Cekici - Ateş Oto Kurtarma Hizmet Bölgeleri"
+          class="block py-2 text-sm font-medium text-gray-700 hover:text-red-600 border-b border-gray-200 mb-2"
+        >
+          📍 Tüm Hizmet Bölgeleri
+        </a>
+
+        <!-- Şehirler ve İlçeler Grid -->
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Şehirler -->
+          <div>
+            <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Şehirler</h5>
+            <div class="space-y-1">
+              {areas.filter(area => area.label === "Sehir").slice(0, 3).map((area) => (
+                <a
+                  href={`/hizmet-bolgeleri/${area.slug}`}
+                  title={`${area.name} Oto Kurtarma Hizmeti`}
+                  class="block py-1 text-xs text-gray-600 hover:text-red-600 transition"
+                >
+                  {area.name}
+                </a>
+              ))}
+              {areas.filter(area => area.label === "Sehir").length > 3 && (
+                <a
+                  href="/hizmet-bolgeleri"
+                  class="block py-1 text-xs text-red-600 hover:text-red-700 font-medium"
+                >
+                  + Diğerleri...
+                </a>
+              )}
+            </div>
+          </div>
+
+          <!-- İlçeler -->
+          <div>
+            <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">İlçeler</h5>
+            <div class="space-y-1">
+              {areas.filter(area => area.label === "İlce").slice(0, 3).map((area) => (
+                <a
+                  href={`/hizmet-bolgeleri/${area.slug}`}
+                  title={`${area.name} Oto Kurtarma Hizmeti`}
+                  class="block py-1 text-xs text-gray-600 hover:text-blue-600 transition"
+                >
+                  {area.name}
+                </a>
+              ))}
+              {areas.filter(area => area.label === "İlce").length > 3 && (
+                <a
+                  href="/hizmet-bolgeleri"
+                  class="block py-1 text-xs text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  + Diğerleri...
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <a
       href="/blog"
       title="Bursa Yakin Cekici - Ateş Oto Kurtarma Blog"
@@ -131,6 +296,7 @@ import Button from "./Button.astro";
   </div>
 
   <script>
+    // Mobil hamburger menü
     const button = document.getElementById("mobile-menu-button");
     const menu = document.getElementById("mobile-menu");
 
@@ -139,5 +305,64 @@ import Button from "./Button.astro";
         menu.classList.toggle("hidden");
       });
     }
+
+    // Mobil hizmet bölgeleri dropdown
+    const mobileAreasButton = document.getElementById("mobile-areas-button");
+    const mobileAreasContent = document.getElementById("mobile-areas-content");
+    const mobileAreasIcon = document.getElementById("mobile-areas-icon");
+
+    if (mobileAreasButton && mobileAreasContent && mobileAreasIcon) {
+      mobileAreasButton.addEventListener("click", () => {
+        mobileAreasContent.classList.toggle("hidden");
+        mobileAreasIcon.classList.toggle("rotate-180");
+      });
+    }
+  </script>
+
+  <!-- CSS Styles -->
+  <style>
+    /* Dropdown animasyonu için */
+    .group:hover .group-hover\:opacity-100 {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .group .group-hover\:opacity-100 {
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+    }
+    
+    /* Dropdown ok animasyonu */
+    .group:hover .group-hover\:rotate-180 {
+      transform: rotate(180deg);
+    }
+
+    /* Mobil dropdown ok animasyonu */
+    .rotate-180 {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <!-- Script for desktop dropdown -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Desktop dropdown için click event ekle (opsiyonel)
+      const dropdownButton = document.querySelector('.group button');
+      const dropdownMenu = document.querySelector('.group > div:last-child');
+      
+      if (dropdownButton && dropdownMenu) {
+        // Click dışında bir yere tıklandığında menüyü kapat
+        document.addEventListener('click', function(event) {
+          const target = event.target;
+          if (target instanceof Node && 
+              !dropdownButton.contains(target) && 
+              !dropdownMenu.contains(target)) {
+            dropdownMenu.classList.add('opacity-0', 'invisible');
+            dropdownMenu.classList.remove('opacity-100', 'visible');
+          }
+        });
+      }
+    });
   </script>
 </header>
