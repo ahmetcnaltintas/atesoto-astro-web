@@ -1,8 +1,10 @@
 ---
 import { info } from "../../data/info";
 const currentYear = new Date().getFullYear();
-import { blogs } from "../../data/blog";
 import { serviceAreas } from "../../data/serviceAreas";
+const message = "Merhaba, destek almak istiyorum.";
+const encodedMessage = encodeURIComponent(message);
+const whatsappUrl = `https://wa.me/${info.whatsapp}?text=${encodedMessage}`;
 
 const footerLinks = {
   company: [
@@ -18,7 +20,7 @@ const socialLinks = [
   { name: "Facebook", href: "#", icon: "facebook" },
   { name: "Twitter", href: "https://x.com/atescekicibursa", icon: "twitter" },
   { name: "Instagram", href: "https://www.instagram.com/atesotocekici/", icon: "instagram" },
-  { name: "Whatsapp", href: "#", icon: "whatsapp" },
+  { name: "Whatsapp", href: whatsappUrl, icon: "whatsapp" },
 ];
 ---
 
