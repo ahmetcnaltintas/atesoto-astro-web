@@ -22,13 +22,13 @@ export default function jsonLDGenerator({ type, post, url, data }) {
       "@type": "PostalAddress",
       streetAddress: "Bursa/Yıldırım Eğitim Mahallesi", 
       addressLocality: "Bursa",
-      postalCode: "16000", // Bursa için genel bir posta kodu
+      postalCode: "16000",
       addressCountry: "TR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 40.1885, // Bursa koordinatları (Örnek)
-      longitude: 29.0609, // Bursa koordinatları (Örnek)
+      latitude: 40.1885,
+      longitude: 29.0609,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",

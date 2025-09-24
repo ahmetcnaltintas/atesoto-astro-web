@@ -24,8 +24,8 @@ const jsonLD = jsonLDGenerator({
 ---
 
 <!-- Primary Meta Tags -->
-<title>{siteTitle}</title>
-<meta name="title" content={siteTitle} />
+<title>{siteTitle || siteData.title}</title>
+<meta name="title" content={siteTitle || siteData.title} />
 <meta name="description" content={description || siteData.description} />
 <meta name="author" content="Ahmet Can Altıntaş">
 <!-- SEO -->
